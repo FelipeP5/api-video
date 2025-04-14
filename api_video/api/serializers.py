@@ -11,6 +11,7 @@ class VideoSerializer(serializers.ModelSerializer):
             'descricao':{'help_text': 'descrição do vídeo'},
             'data':{'help_text':'data definida por vontade do usuário'},
             'arquivo':{'help_text':'o arquivo que contém o vídeo'},
+            'thumbnail':{'help_text': 'a imagem representativa do vídeo'}
         }
 
 class PlaylistSerializer(serializers.ModelSerializer):
@@ -22,14 +23,16 @@ class PlaylistSerializer(serializers.ModelSerializer):
             'nome':{'help_text': 'nome da playlist'},
             'descricao':{'help_text': 'descrição da playlist'},
             'data':{'help_text':'data definida por vontade do usuário'},
+            'thumbnail':{'help_text': 'a imagem representativa da playlist'},
+            'videos':{'help_text': 'os vídeos que nela estão'},
         }
 
-class PlaylistVideoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.PlaylistVideo
-        fields = '__all__'
-        extra_kwargs = {
-            'id' : {'help_text': 'identificador'},
-            'playlist':{'help_text': 'id da playlist referida'},
-            'video':{'help_text': 'id do vídeo contido.'},
-        }
+# class PlaylistVideoSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = models.PlaylistVideo
+#         fields = '__all__'
+#         extra_kwargs = {
+#             'id' : {'help_text': 'identificador'},
+#             'playlist':{'help_text': 'id da playlist referida'},
+#             'video':{'help_text': 'id do vídeo contido.'},
+#         }

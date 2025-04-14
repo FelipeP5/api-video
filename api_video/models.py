@@ -17,8 +17,8 @@ class RenameImage(object):
 ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'jpg', 'gif']
 class Video(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=500)
-    data= models.DateField()
+    descricao = models.TextField(blank=True, null=True)
+    data= models.DateField(auto_now_add=True)
     arquivo= models.FileField()
     thumbnail = models.ImageField(upload_to=RenameImage('imagens/'))
 
@@ -34,9 +34,10 @@ class Video(models.Model):
 
 class Playlist(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=500)
-    data = models.DateField()
+    descricao = models.TextField(blank=True, null=True)
+    data = models.DateField(auto_now_add=True)
     thumbnail = models.ImageField(upload_to=RenameImage('imagens/'))
+    videos = models.ManyToManyField(Video)
 
     def clean(self):
         if self.thumbnail:
@@ -48,6 +49,7 @@ class Playlist(models.Model):
         self.clean()
         super().save(*args, **kwargs)
 
-class PlaylistVideo(models.Model):
-    playlist=models.ForeignKey(Playlist, on_delete=models.DO_NOTHING)
-    video=models.ForeignKey(Video, on_delete=models.DO_NOTHING)
+# Desnecessário... eu acho
+# class PlaylistVideo(models.Model):
+#     playlist=models.ForeignKey(Playlist, on_delete=models.DO_NOTHING)
+#     video=models.ForeignKey(Video, on_delete=models.DO_NOTHING)

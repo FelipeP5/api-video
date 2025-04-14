@@ -24,7 +24,7 @@ schema_view = get_schema_view(
 route= routers.DefaultRouter()
 route.register(r'video', viewsets.VideoViewSet, basename='video')
 route.register(r'playlist', viewsets.PlaylistViewSet, basename='playlist')
-route.register(r'playlistvideo', viewsets.PlaylistVideoViewSet, basename='playlistvideo')
+# route.register(r'playlistvideo', viewsets.PlaylistVideoViewSet, basename='playlistvideo')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

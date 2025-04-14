@@ -92,46 +92,46 @@ class PlaylistViewSet(viewsets.ModelViewSet):
         return super().destroy(request, *args, **kwargs)
 
 
-class PlaylistVideoViewSet(viewsets.ModelViewSet):
-    serializer_class = serializers.PlaylistVideoSerializer
-    queryset = models.PlaylistVideo.objects.all()
+# class PlaylistVideoViewSet(viewsets.ModelViewSet):
+#     serializer_class = serializers.PlaylistVideoSerializer
+#     queryset = models.PlaylistVideo.objects.all()
 
-    @swagger_auto_schema(
-        operation_description= "Listar videos em playlists",
-        responses= {200: serializers.PlaylistVideoSerializer(many=True)}
-    )
-    def list(self, request, *args, **kwargs):
-        #GET
-        return super().list(request, *args, **kwargs)
+#     @swagger_auto_schema(
+#         operation_description= "Listar videos em playlists",
+#         responses= {200: serializers.PlaylistVideoSerializer(many=True)}
+#     )
+#     def list(self, request, *args, **kwargs):
+#         #GET
+#         return super().list(request, *args, **kwargs)
     
-    @swagger_auto_schema(
-        operation_description= "Criar arranjo de video numa playlist",
-        responses={201: "Arranjo criado com sucesso"}
-    )
-    def create(self, request, *args, **kwargs):
-        #POST
-        return super().create(request, *args, **kwargs)
+#     @swagger_auto_schema(
+#         operation_description= "Criar arranjo de video numa playlist",
+#         responses={201: "Arranjo criado com sucesso"}
+#     )
+#     def create(self, request, *args, **kwargs):
+#         #POST
+#         return super().create(request, *args, **kwargs)
     
-    @swagger_auto_schema(
-        operation_description= "Encontrar arranjo",
-        responses={200: "Arranjo adquirido com sucesso"}
-    )
-    def retrieve(self, request, *args, **kwargs):
-        #GET ID
-        return super().retrieve(request, *args, **kwargs)
+#     @swagger_auto_schema(
+#         operation_description= "Encontrar arranjo",
+#         responses={200: "Arranjo adquirido com sucesso"}
+#     )
+#     def retrieve(self, request, *args, **kwargs):
+#         #GET ID
+#         return super().retrieve(request, *args, **kwargs)
     
-    @swagger_auto_schema(
-        operation_description= "Atualizar arranjos conforme id e dados entrados",
-        responses={200: "Arranjo atualizado com sucesso"}
-    )
-    def update(self, request, *args, **kwargs):
-        #PUT
-        return super().update(request, *args, **kwargs)
+#     @swagger_auto_schema(
+#         operation_description= "Atualizar arranjos conforme id e dados entrados",
+#         responses={200: "Arranjo atualizado com sucesso"}
+#     )
+#     def update(self, request, *args, **kwargs):
+#         #PUT
+#         return super().update(request, *args, **kwargs)
     
-    @swagger_auto_schema(
-        operation_description= "Apaga arranjo no id definido",
-        responses={204: "Arranjo apagado com sucesso"}
-    )
-    def destroy(self, request, *args, **kwargs):
-        #DELETE
-        return super().destroy(request, *args, **kwargs)
+#     @swagger_auto_schema(
+#         operation_description= "Apaga arranjo no id definido",
+#         responses={204: "Arranjo apagado com sucesso"}
+#     )
+#     def destroy(self, request, *args, **kwargs):
+#         #DELETE
+#         return super().destroy(request, *args, **kwargs)
