@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>{% block title %}Título{% endblock %}</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <p>
+            <a href="{% url 'home' %}">home</a>
+            <a href="{% url 'video' %}">video</a>
+            <a href="{% url 'playlist' %}">playlist</a>
+            <a href="{% url 'usuario' %}">usuário</a>
+        </p>
+    </header>
+    {% csrf_token %}
+    {% block body %}{% endblock %}
+    <footer></footer>
 </body>
 </html>
